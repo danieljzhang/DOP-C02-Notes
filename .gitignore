@@ -1,0 +1,26 @@
+# PDF files (keep only markdown)
+*.pdf
+
+# Windows metadata
+*:Zone.Identifier
+
+# macOS metadata
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Draft and temporary files
+draft/
+temp/
+tmp/
+
+# Personal notes
+personal-notes/
+my-notes/
