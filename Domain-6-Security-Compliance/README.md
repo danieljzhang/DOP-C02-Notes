@@ -31,10 +31,14 @@ This domain covers security and compliance aspects of AWS DevOps practices, focu
 
 ### Core Security Services
 - **[IAM-General.md](./IAM-General.md)** - Identity and Access Management comprehensive guide
+- **[IAM-Identity-Center-General.md](./IAM-Identity-Center-General.md)** - Workforce SSO, permission sets, multi-account access
+- **[Resource-Control-Policies-General.md](./Resource-Control-Policies-General.md)** - RCPs: restrict what can be done to resources org-wide
 - **[KMS-General.md](./KMS-General.md)** - Key Management Service for encryption
 - **[Secrets-Manager-General.md](./Secrets-Manager-General.md)** - Secrets management and rotation
 - **[Certificate-Manager-General.md](./Certificate-Manager-General.md)** - SSL/TLS certificate management
 - **[WAF-Shield-General.md](./WAF-Shield-General.md)** - Web Application Firewall and DDoS protection
+- **[Macie-General.md](./Macie-General.md)** - Sensitive data discovery in S3
+- **[Audit-Manager-General.md](./Audit-Manager-General.md)** - Automated compliance evidence collection
 
 ### Governance and Compliance
 - **[Compliance-Governance-General.md](./Compliance-Governance-General.md)** - Compliance frameworks and governance patterns

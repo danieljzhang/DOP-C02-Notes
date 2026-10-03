@@ -37,9 +37,15 @@ This domain focuses on designing and implementing resilient, highly available, a
 - **[Auto-Scaling-General.md](./Auto-Scaling-General.md)** - Comprehensive Auto Scaling guide for EC2, ECS, and Application Auto Scaling
 - **[ELB-General.md](./ELB-General.md)** - Elastic Load Balancing for high availability and traffic distribution
 - **[RDS-Multi-AZ-General.md](./RDS-Multi-AZ-General.md)** - Database high availability, Multi-AZ, and read replicas
+- **[RDS-BlueGreen-General.md](./RDS-BlueGreen-General.md)** - RDS Blue/Green deployments for minimal-downtime upgrades
 - **[Route53-General.md](./Route53-General.md)** - DNS routing, health checks, and global load balancing
 - **[S3-Cross-Region-Replication.md](./S3-Cross-Region-Replication.md)** - Data replication and disaster recovery strategies
 - **[EKS-General.md](./EKS-General.md)** - Kubernetes container orchestration for resilient applications
+- **[Global-Accelerator-General.md](./Global-Accelerator-General.md)** - Anycast IPs, traffic dials, sub-minute failover
+- **[Resilience-Hub-General.md](./Resilience-Hub-General.md)** - Resilience score, RTO/RPO assessment, CI/CD integration
+- **[AWS-Backup-General.md](./AWS-Backup-General.md)** - Centralized backup across AWS services
+- **[ECS-Deployments-General.md](./ECS-Deployments-General.md)** - ECS deployment strategies
+- **[ElastiCache-Resilience-General.md](./ElastiCache-Resilience-General.md)** - ElastiCache resilience patterns
 
 ## Key Concepts
 

@@ -8,8 +8,10 @@
 - **CodePipeline** - Orchestrates CI/CD workflows, supports cross-account deployments
 - **CodeBuild** - Managed build service, uses buildspec.yml, supports Docker
 - **CodeDeploy** - Deployment service, supports blue/green, rolling, canary strategies
-- **CodeCommit** - Git repositories (returned to full GA for new customers, Nov 2025)
-- **CodeStar/CodeCatalyst** - Development environments and project templates
+- **CodeCommit** - Git repositories (status uncertain — was restricted to existing customers July 2024; verify current availability before the exam)
+- **CodeStar** - Retired July 2024. **CodeCatalyst** - Maintenance mode Nov 2025. See `DEPRECATED-SERVICES.md`
+- **AppConfig** - Managed feature flags and config deployments with validation and auto-rollback
+- **CodeArtifact** - Managed artifact repository (npm, Maven, PyPI, NuGet); domain + repository model
 
 #### **Integration & Automation**
 - **EventBridge** - Event routing, custom events, cross-account event sharing
@@ -33,7 +35,6 @@
 
 #### **Configuration Management**
 - **Systems Manager** - Parameter Store, Session Manager, Run Command, Patch Manager
-- **OpsWorks** - Chef/Puppet managed instances, application lifecycle
 - **Config** - Configuration compliance, rules, remediation actions
 - **Service Catalog** - Standardized product portfolios, governance
 
@@ -77,6 +78,8 @@
 
 #### **Event Processing**
 - **EventBridge** - Event routing, custom events, third-party integrations
+- **EventBridge Pipes** - Point-to-point integrations with filtering and enrichment (source → filter → enrich → target)
+- **EventBridge Scheduler** - Serverless cron/rate/one-time scheduling for 200+ AWS API targets
 - **SNS** - Pub/sub messaging, mobile push, email, SMS notifications
 - **SQS** - Message queuing, FIFO, dead letter queues, visibility timeout
 - **Lambda** - Event-driven processing, automatic scaling, multiple triggers
@@ -85,13 +88,17 @@
 - **Step Functions** - State machines, parallel processing, error handling
 - **CloudWatch Alarms** - Threshold monitoring, composite alarms, actions
 - **Auto Scaling** - Dynamic scaling based on metrics, scheduled scaling
+- **Incident Manager** - Response plans, escalation, runbooks, dedup string (maintenance mode — know concepts)
+- **ChatOps (Amazon Q in chat)** - AWS operations from Slack/Teams; CodePipeline approvals, CloudWatch alarms in chat
 
 ### **Domain 6: Security and Compliance (17%)**
 
 #### **Identity & Access**
 - **IAM** - Users, roles, policies, conditions, cross-account access
-- **Organizations** - SCPs, account management, consolidated billing
+- **IAM Identity Center** - Workforce SSO across accounts; permission sets; replaces AWS SSO
+- **Organizations** - SCPs, RCPs, account management, consolidated billing
 - **Control Tower** - Governance, guardrails, compliance monitoring
+- **Resource Control Policies (RCPs)** - Restrict what can be done *to* resources org-wide (complement to SCPs)
 
 #### **Encryption & Secrets**
 - **KMS** - Key management, envelope encryption, cross-account access
@@ -102,6 +109,8 @@
 - **WAF** - Web application firewall, rate limiting, geo-blocking
 - **Shield** - DDoS protection, Standard (free), Advanced (paid)
 - **GuardDuty** - Threat detection, behavioral analysis, findings
+- **Macie** - Sensitive data discovery in S3; policy findings vs sensitive-data findings
+- **Audit Manager** - Automated compliance evidence collection for PCI-DSS, HIPAA, SOC 2, etc.
 
 ## 🔥 **High-Impact Integration Patterns**
 

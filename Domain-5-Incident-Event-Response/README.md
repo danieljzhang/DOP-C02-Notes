@@ -35,10 +35,14 @@ This domain covers incident detection, event processing, automated response mech
 
 ### Core Event Processing Services
 - **[EventBridge-General.md](./EventBridge-General.md)** - Event routing and processing service
+- **[EventBridge-Pipes-General.md](./EventBridge-Pipes-General.md)** - Point-to-point integrations with filtering and enrichment
+- **[EventBridge-Scheduler-General.md](./EventBridge-Scheduler-General.md)** - Serverless cron/rate/one-time scheduling
 - **[SNS-SQS-General.md](./SNS-SQS-General.md)** - Messaging and notification services
 - **[Lambda-General.md](./Lambda-General.md)** - Serverless compute for event processing
 - **[CloudWatch-Alarms-General.md](./CloudWatch-Alarms-General.md)** - Monitoring and alerting service
 - **[StepFunctions-General.md](./StepFunctions-General.md)** - Workflow orchestration service
+- **[Incident-Manager-General.md](./Incident-Manager-General.md)** - Response plans, escalation, runbooks
+- **[ChatOps-General.md](./ChatOps-General.md)** - AWS operations from Slack/Teams
 
 ## Key Concepts
 

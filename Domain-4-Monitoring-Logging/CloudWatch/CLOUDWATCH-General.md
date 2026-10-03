@@ -12,11 +12,15 @@
 - **Cross-account observability:** a *monitoring account* linked to *source accounts* (via Organizations) can view metrics and create alarms/anomaly detectors on source-account data — no account switching.
 - **Logs:** log groups need explicit *retention* (default: never expire = unbounded cost); **Logs Insights** query language; **metric filters** turn log patterns into metrics/alarms while **subscription filters** stream log events to Lambda/Kinesis/Firehose; **Embedded Metric Format (EMF)** emits custom metrics straight from structured logs.
 - **EC2 action alarms:** `arn:aws:automate:<region>:ec2:stop|terminate|reboot|recover` — remediate without writing a Lambda.
+- **Application Signals (2024):** auto-instruments application performance (latency, error rate, availability) using OpenTelemetry — no manual SDK instrumentation needed. Surfaces SLOs (Service Level Objectives) directly in CloudWatch. The modern replacement for manually wiring X-Ray + custom metrics for application health.
+- **Internet Monitor (2023):** monitors the health of your application's internet path from AWS to end users. Detects when an AWS network issue or internet provider problem is degrading connectivity for a subset of users — and tells you *which city/ISP* is affected. Publishes health events to EventBridge for automated response.
 
 **Common traps:**
 - Composite alarms combine alarm *states*; metric math combines *metrics*. Different tools.
 - Anomaly band width is in standard deviations — wider band, fewer alarms.
 - INSUFFICIENT_DATA is a state you can (and should) alarm on for dead-man's-switch patterns.
+- Application Signals ≠ X-Ray — Signals gives SLO-level health; X-Ray gives per-request traces. They complement each other.
+- Internet Monitor detects *network path* issues between AWS and users — not application bugs.
 
 **Sources:** https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Create_Anomaly_Detection_Alarm.html · https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Create_Composite_Alarm.html
 

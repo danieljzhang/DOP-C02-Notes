@@ -1,5 +1,7 @@
 # AWS RDS Multi-AZ and High Availability - DOP-C02 Study Notes
 
+> **Related:** For zero-downtime engine upgrades and schema changes, see [RDS-BlueGreen-General.md](./RDS-BlueGreen-General.md).
+
 ## 1. Overview
 
 ### What is RDS Multi-AZ?

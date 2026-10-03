@@ -45,6 +45,7 @@ This domain focuses on implementing and managing infrastructure as code (IaC), c
 
 ### Development and Deployment Tools
 - **[CDK-General.md](./CDK-General.md)** - AWS Cloud Development Kit for code-based IaC
+- **[CDK-Pipelines-General.md](./CDK-Pipelines-General.md)** - Self-mutating CDK Pipelines, waves, cross-account bootstrap
 - **[SAM-General.md](./SAM-General.md)** - Serverless Application Model for serverless IaC
 
 ### Governance and Compliance

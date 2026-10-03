@@ -421,36 +421,22 @@ aws iam get-credential-report --output text --query Content | base64 -d > creden
 
 ---
 
-## 12. IAM Identity Center (SSO)
+## 12. IAM Identity Center (formerly AWS SSO)
 
-### What is Identity Center?
-- Centrally manage access to AWS accounts and applications
-- Single sign-on (SSO) experience
-- Integration with external identity providers
-- Successor to AWS SSO
+> **Full coverage in dedicated file:** [IAM-Identity-Center-General.md](./IAM-Identity-Center-General.md)
 
-### Key Features
-- **Multi-Account Access** - Manage access across AWS accounts
-- **Application Integration** - SSO to cloud applications
-- **Permission Sets** - Reusable permission templates
-- **Identity Source** - Internal or external identity providers
+### Quick Reference
+- Successor to AWS SSO (renamed July 2022) — same service, new name
+- Centrally manage workforce access to **multiple AWS accounts and applications** from one place
+- One **identity source** (built-in directory, Active Directory, or external IdP via SAML 2.0)
+- **Permission sets** — reusable templates that IAM Identity Center deploys as IAM roles into target accounts automatically
+- **Assignments** link a user/group + permission set + AWS account; supports OU-level assignment via Organizations
+- MFA enforcement is configured once in Identity Center, applies across all accounts
+- CLI access: `aws configure sso` + `aws sso login --profile <name>`
+- CloudTrail source: `sso.amazonaws.com`
 
-### Permission Sets
-```json
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Action": [
-        "ec2:Describe*",
-        "s3:ListBucket"
-      ],
-      "Resource": "*"
-    }
-  ]
-}
-```
+### Exam Trap
+IAM Identity Center is for **human workforce** access. For machine-to-machine or CI/CD, use IAM roles or OIDC federation — not Identity Center.
 
 ---
 

@@ -435,3 +435,225 @@ Real-time response needed?
 - **Flag for review** - Mark uncertain questions for later review
 
 **Remember**: Practice these scenarios until you can quickly identify the pattern and select the appropriate AWS services and architecture. Focus on understanding the integration between services rather than memorizing individual service features. Good luck! 🚀
+
+---
+
+### **Scenario 11: RDS Major Version Upgrade with Rollback**
+**Question**: A company needs to upgrade their production RDS MySQL 5.7 instance to MySQL 8.0. The upgrade must have less than 5 minutes of downtime and must support instant rollback if the new version causes application issues.
+
+**Key Requirements**:
+- Minimal downtime (< 5 minutes)
+- Instant rollback capability
+- No data loss
+- Validate before cutover
+
+**Solution Pattern**:
+```
+RDS Blue/Green Deployment
+Blue (prod MySQL 5.7) → Green (MySQL 8.0 copy)
+        ↓
+Logical replication keeps green in sync
+        ↓
+Run integration tests against green endpoint
+        ↓
+switchover-blue-green-deployment (< 1 min downtime)
+        ↓
+Keep blue for rollback → delete after validation
+```
+
+**Implementation Steps**:
+1. Create blue/green deployment targeting engine version 8.0
+2. Wait for green to be available and in sync
+3. Run application tests against the green endpoint
+4. Execute switchover — RDS swaps DNS names, downtime < 1 minute
+5. Monitor for 24–48 hours, then delete the blue environment
+
+**Exam Tips**:
+- Blue/green is the answer for "minimal downtime + rollback" RDS upgrades
+- Endpoints don't change — applications need no reconfiguration
+- Blue is retained after switchover — you pay for it until you delete it
+- Not supported for Oracle or SQL Server
+
+---
+
+### **Scenario 12: Stream Processing with Enrichment**
+**Question**: An e-commerce company has orders arriving in an SQS queue. Each order needs to be enriched with customer loyalty tier data from a Lambda function before being sent to a Step Functions workflow for fulfilment. The team wants to avoid writing polling and routing code.
+
+**Key Requirements**:
+- Poll SQS automatically
+- Filter out test orders before enrichment
+- Enrich with customer data
+- Route to Step Functions
+- No custom polling Lambda
+
+**Solution Pattern**:
+```
+SQS Queue (source)
+    → Filter: body.orderType != "TEST"
+    → Enrichment: Lambda adds loyalty tier from DynamoDB
+    → Target: Step Functions Express Workflow
+```
+
+**Implementation Steps**:
+1. Create an EventBridge Pipe with the SQS queue as source
+2. Add a filter pattern to drop test orders
+3. Configure Lambda enrichment to look up customer loyalty tier
+4. Set Step Functions Express Workflow as the target
+5. Attach an execution role with SQS, Lambda, and Step Functions permissions
+
+**Exam Tips**:
+- EventBridge Pipes = point-to-point with built-in enrichment; no polling Lambda needed
+- Filter before enrichment saves Lambda invocations and cost
+- Step Functions enrichment must be Express Workflow (synchronous) — not Standard
+- Pipes vs Rules: Pipes = one source → one target; Rules = fan-out to many targets
+
+---
+
+### **Scenario 13: Centralised Multi-Account Access Management**
+**Question**: A company has 40 AWS accounts across dev, staging, and production OUs. Developers need read-only access to all accounts and full access to dev accounts. The security team needs admin access to all accounts. Currently each account has separate IAM users. The company wants a single login experience with MFA enforced everywhere.
+
+**Key Requirements**:
+- Single sign-on across all 40 accounts
+- Role-based access (developer vs security team)
+- MFA enforced centrally
+- No per-account IAM user management
+
+**Solution Pattern**:
+```
+Corporate IdP (Okta/Azure AD)
+    ↓ SAML 2.0
+IAM Identity Center (management account)
+    ↓
+Permission Sets:
+  - ReadOnly → all 40 accounts (developers)
+  - PowerUser → dev OU accounts (developers)
+  - AdminAccess → all 40 accounts (security team)
+    ↓
+AWS Access Portal (single login URL)
+    ↓
+Temporary credentials per account/role selection
+```
+
+**Implementation Steps**:
+1. Enable IAM Identity Center in the management account
+2. Connect to corporate IdP via SAML 2.0
+3. Create three permission sets (ReadOnly, PowerUser, AdminAccess)
+4. Assign permission sets to groups at the OU level via Organizations
+5. Enable MFA enforcement in Identity Center — applies to all accounts automatically
+6. Users log in at the Access Portal, select account + role
+
+**Exam Tips**:
+- IAM Identity Center = the answer for "single login across multiple accounts"
+- Permission sets deploy as IAM roles automatically — no manual role creation per account
+- MFA configured once in Identity Center applies everywhere — no per-account IAM MFA policy
+- "AWS SSO" in older questions = IAM Identity Center — same service
+- For CI/CD pipelines, use IAM roles or OIDC — not Identity Center
+**Question**: A company needs to upgrade their production RDS MySQL 5.7 instance to MySQL 8.0. The upgrade must have less than 5 minutes of downtime and must support instant rollback if the new version causes application issues.
+
+**Key Requirements**:
+- Minimal downtime (< 5 minutes)
+- Instant rollback capability
+- No data loss
+- Validate before cutover
+
+**Solution Pattern**:
+```
+RDS Blue/Green Deployment
+Blue (prod MySQL 5.7) → Green (MySQL 8.0 copy)
+        ↓
+Logical replication keeps green in sync
+        ↓
+Run integration tests against green endpoint
+        ↓
+switchover-blue-green-deployment (< 1 min downtime)
+        ↓
+Keep blue for rollback → delete after validation
+```
+
+**Implementation Steps**:
+1. Create blue/green deployment targeting engine version 8.0
+2. Wait for green to be available and in sync
+3. Run application tests against the green endpoint
+4. Execute switchover — RDS swaps DNS names, downtime < 1 minute
+5. Monitor for 24–48 hours, then delete the blue environment
+
+**Exam Tips**:
+- Blue/green is the answer for "minimal downtime + rollback" RDS upgrades
+- Endpoints don't change — applications need no reconfiguration
+- Blue is retained after switchover — you pay for it until you delete it
+- Not supported for Oracle or SQL Server
+
+---
+
+### **Scenario 12: Stream Processing with Enrichment**
+**Question**: An e-commerce company has orders arriving in an SQS queue. Each order needs to be enriched with customer loyalty tier data from a Lambda function before being sent to a Step Functions workflow for fulfilment. The team wants to avoid writing polling and routing code.
+
+**Key Requirements**:
+- Poll SQS automatically
+- Filter out test orders before enrichment
+- Enrich with customer data
+- Route to Step Functions
+- No custom polling Lambda
+
+**Solution Pattern**:
+```
+SQS Queue (source)
+    → Filter: body.orderType != "TEST"
+    → Enrichment: Lambda adds loyalty tier from DynamoDB
+    → Target: Step Functions Express Workflow
+```
+
+**Implementation Steps**:
+1. Create an EventBridge Pipe with the SQS queue as source
+2. Add a filter pattern to drop test orders
+3. Configure Lambda enrichment to look up customer loyalty tier
+4. Set Step Functions Express Workflow as the target
+5. Attach an execution role with SQS, Lambda, and Step Functions permissions
+
+**Exam Tips**:
+- EventBridge Pipes = point-to-point with built-in enrichment; no polling Lambda needed
+- Filter before enrichment saves Lambda invocations and cost
+- Step Functions enrichment must be Express Workflow (synchronous) — not Standard
+- Pipes vs Rules: Pipes = one source → one target; Rules = fan-out to many targets
+
+---
+
+### **Scenario 13: Centralised Multi-Account Access Management**
+**Question**: A company has 40 AWS accounts across dev, staging, and production OUs. Developers need read-only access to all accounts and full access to dev accounts. The security team needs admin access to all accounts. Currently each account has separate IAM users. The company wants a single login experience with MFA enforced everywhere.
+
+**Key Requirements**:
+- Single sign-on across all 40 accounts
+- Role-based access (developer vs security team)
+- MFA enforced centrally
+- No per-account IAM user management
+
+**Solution Pattern**:
+```
+Corporate IdP (Okta/Azure AD)
+    ↓ SAML 2.0
+IAM Identity Center (management account)
+    ↓
+Permission Sets:
+  - ReadOnly → all 40 accounts (developers)
+  - PowerUser → dev OU accounts (developers)
+  - AdminAccess → all 40 accounts (security team)
+    ↓
+AWS Access Portal (single login URL)
+    ↓
+Temporary credentials per account/role selection
+```
+
+**Implementation Steps**:
+1. Enable IAM Identity Center in the management account
+2. Connect to corporate IdP via SAML 2.0
+3. Create three permission sets (ReadOnly, PowerUser, AdminAccess)
+4. Assign permission sets to groups at the OU level via Organizations
+5. Enable MFA enforcement in Identity Center — applies to all accounts automatically
+6. Users log in at the Access Portal, select account + role
+
+**Exam Tips**:
+- IAM Identity Center = the answer for "single login across multiple accounts"
+- Permission sets deploy as IAM roles automatically — no manual role creation per account
+- MFA configured once in Identity Center applies everywhere — no per-account IAM MFA policy
+- "AWS SSO" in older questions = IAM Identity Center — same service
+- For CI/CD pipelines, use IAM roles or OIDC — not Identity Center

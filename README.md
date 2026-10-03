@@ -22,9 +22,10 @@ This repository contains comprehensive study materials for the AWS Certified Dev
 ### **📁 Domain-Specific Study Materials**
 
 #### **[Domain 1: SDLC Automation (22%)](./Domain-1-SDLC-Automation/)**
-- **Core Services**: CodePipeline, CodeBuild, CodeDeploy, CodeCommit, EventBridge
-- **Integration Patterns**: Cross-account deployments, third-party integrations
-- **Deep Dives**: CodePipeline cross-account patterns, service integrations
+- **Core Services**: CodePipeline, CodeBuild, CodeDeploy, EventBridge, AppConfig, CodeArtifact
+- **Source Control**: GitHub/GitLab via CodeStar connections (CodeCommit status uncertain — verify before exam)
+- **Integration Patterns**: Cross-account deployments, GitHub Actions OIDC, third-party integrations
+- **Deep Dives**: CodePipeline V1 vs V2, cross-account patterns, service integrations
 - **Coverage**: CI/CD pipelines, automated testing, deployment strategies
 
 #### **[Domain 2: Infrastructure as Code (17%)](./Domain-2-Configuration-Management-Infrastructure-as-Code/)**
@@ -34,8 +35,9 @@ This repository contains comprehensive study materials for the AWS Certified Dev
 - **Coverage**: IaC best practices, configuration management, governance
 
 #### **[Domain 3: Resilient Cloud Solutions (15%)](./Domain-3-Resilient-Cloud-Solutions/)**
-- **Core Services**: Auto Scaling, ELB, RDS Multi-AZ, Route 53, S3 CRR, EKS
+- **Core Services**: Auto Scaling, ELB, RDS Multi-AZ, Route 53, S3 CRR, EKS, ECS, AWS Backup, ElastiCache
 - **Patterns**: High availability, disaster recovery, multi-region architectures
+- **Missing**: Global Accelerator, RDS Blue/Green Deployments, AWS Resilience Hub *(planned — see Update Plan)*
 - **Coverage**: Resilience design, fault tolerance, scalability patterns
 
 #### **[Domain 4: Monitoring and Logging (15%)](./Domain-4-Monitoring-Logging/)**
@@ -44,13 +46,15 @@ This repository contains comprehensive study materials for the AWS Certified Dev
 - **Coverage**: Comprehensive monitoring, security monitoring, compliance
 
 #### **[Domain 5: Incident and Event Response (14%)](./Domain-5-Incident-Event-Response/)**
-- **Core Services**: EventBridge, Lambda, SNS/SQS, Step Functions, CloudWatch Alarms
+- **Core Services**: EventBridge, EventBridge Scheduler, Lambda, SNS/SQS, Step Functions, CloudWatch Alarms, Incident Manager, ChatOps
 - **Patterns**: Event-driven architectures, automated response, workflow orchestration
+- **Missing**: EventBridge Pipes *(planned — see Update Plan)*
 - **Coverage**: Incident detection, automated remediation, notification systems
 
 #### **[Domain 6: Security and Compliance (17%)](./Domain-6-Security-Compliance/)**
-- **Core Services**: IAM, KMS, Secrets Manager, WAF/Shield, Certificate Manager
+- **Core Services**: IAM, KMS, Secrets Manager, WAF/Shield, Certificate Manager, Macie
 - **Governance**: Compliance frameworks, security automation, governance patterns
+- **Missing**: IAM Identity Center, Resource Control Policies (RCPs), Audit Manager *(planned — see Update Plan)*
 - **Coverage**: Security best practices, compliance monitoring, access management
 
 ### **📁 [Cheatsheets](./Cheatsheets/) - Last-Minute Review Materials**
@@ -128,6 +132,8 @@ This repository contains comprehensive study materials for the AWS Certified Dev
 3. **IAM** - Security foundation, appears in Domains 1, 2, 6
 4. **CloudWatch** - Monitoring foundation, appears in Domains 3, 4, 5
 5. **Auto Scaling** - Resilience foundation, appears in Domains 1, 3, 5
+6. **EventBridge** - Event routing foundation, appears in Domains 1, 4, 5
+7. **Step Functions** - Workflow orchestration, appears in Domains 1, 5
 
 ### **Critical Integration Patterns**
 - **Cross-account deployments** - IAM roles + trust policies + resource sharing
@@ -212,7 +218,7 @@ Domain-X-Name/
 ### **Community Resources**
 - [AWS re:Invent Sessions](https://reinvent.awsevents.com/) - Latest AWS updates
 - [AWS Blogs](https://aws.amazon.com/blogs/) - Technical deep dives
-- [AWS Forums](https://forums.aws.amazon.com/) - Community support
+- [AWS re:Post](https://repost.aws/) - Community Q&A (replaced AWS Forums)
 - [AWS User Groups](https://aws.amazon.com/developer/community/usergroups/) - Local communities
 
 ## 📝 **Study Tips**
@@ -301,6 +307,52 @@ This repository is actively maintained and updated based on:
 - **Exam blueprint changes** and feedback
 - **Community contributions** and suggestions
 - **Real exam experiences** and patterns
+
+---
+
+## 🗺️ **Update Plan**
+
+> Last reviewed: October 2026 (Muse AI review + Amazon Q corrections applied).
+> Items below are confirmed gaps — not yet in the repo. Tracked here so nothing gets lost.
+
+### Phase 1 — High Priority ✅ Done
+
+| # | File | Domain | Status |
+|---|---|---|---|
+| 1 | `Domain-6-Security-Compliance/IAM-Identity-Center-General.md` | 6 (17%) | ✅ Added |
+| 2 | `Domain-6-Security-Compliance/Resource-Control-Policies-General.md` | 6 (17%) | ✅ Added |
+| 3 | `Domain-3-Resilient-Cloud-Solutions/Global-Accelerator-General.md` | 3 (15%) | ✅ Added |
+
+### Phase 2 — Medium Priority ✅ Done
+
+| # | File | Domain | Status |
+|---|---|---|---|
+| 4 | `Domain-3-Resilient-Cloud-Solutions/RDS-BlueGreen-General.md` | 3 (15%) | ✅ Added |
+| 5 | `Domain-5-Incident-Event-Response/EventBridge-Pipes-General.md` | 5 (14%) | ✅ Added |
+| 6 | `Domain-4-Monitoring-Logging/CloudWatch-Synthetics-General.md` | 4 (15%) | ✅ Added |
+| 7 | `Domain-2-Configuration-Management-Infrastructure-as-Code/CDK-Pipelines-General.md` | 2 (17%) | ✅ Added |
+| 8 | `Domain-1-SDLC-Automation/GitHub-Actions-Integration/GitHub-OIDC-AWS.md` | 1 (22%) | ✅ Added |
+
+### Phase 3 — Lower Priority (nice to have) ✅ Done
+
+| # | File | Domain | Status |
+|---|---|---|---|
+| 9 | `Domain-6-Security-Compliance/Audit-Manager-General.md` | 6 (17%) | ✅ Added |
+| 10 | `Domain-3-Resilient-Cloud-Solutions/Resilience-Hub-General.md` | 3 (15%) | ✅ Added |
+| 11 | `DEPRECATED-SERVICES.md` | structural | ✅ Added |
+| 12 | `CHANGELOG.md` | structural | ✅ Added |
+
+### Known content corrections still needed in existing files
+
+| File | Issue |
+|---|---|
+| `Domain-4-Monitoring-Logging/CloudWatch/CLOUDWATCH-General.md` | ✅ Application Signals and Internet Monitor added |
+| `Cheatsheets/All-Services-Review.md` | ✅ IAM Identity Center, RCPs, EventBridge Pipes, Macie, Audit Manager added; OpsWorks removed |
+| `Cheatsheets/Practice-Scenarios.md` | ✅ Scenarios 11–13 added (RDS blue/green, EventBridge Pipes, IAM Identity Center) |
+| `Domain-6-Security-Compliance/IAM-General.md` | ✅ Section 12 updated to IAM Identity Center with link to dedicated file |
+
+> See [DEPRECATED-SERVICES.md](./DEPRECATED-SERVICES.md) for the single reference on retired/restricted services (OpsWorks, CodeStar, CodeCatalyst, CodeCommit).
+> See [CHANGELOG.md](./CHANGELOG.md) for a full history of what was reviewed and when.
 
 ---
 

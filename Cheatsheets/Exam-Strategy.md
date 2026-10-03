@@ -80,7 +80,7 @@
 - **"Third-party tools"** - When AWS native options exist
 - **"Manual processes"** - AWS prefers automation
 - **"Complex multi-step processes"** - Look for simpler alternatives
-- **"Deprecated services"** - OpsWorks Stacks (CodeCommit is fully GA again since Nov 2025 — do NOT auto-eliminate it)
+- **"Deprecated services"** - OpsWorks Stacks (retired May 2024); CodeStar (retired July 2024) — eliminate these. CodeCommit status is uncertain — verify before exam; treat as valid if it appears in a scenario.
 
 ### **Green Flags in Answer Choices**
 - **"Managed services"** - AWS prefers managed over self-managed
