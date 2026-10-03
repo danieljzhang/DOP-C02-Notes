@@ -3,7 +3,7 @@
 ## Overview
 This domain covers incident detection, event processing, automated response mechanisms, and orchestration of complex incident response workflows in AWS environments.
 
-## Domain Weight: 18% of exam
+## Domain Weight: 14% of exam
 
 ## Key Topics Covered
 

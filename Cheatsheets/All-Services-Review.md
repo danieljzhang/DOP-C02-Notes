@@ -8,7 +8,7 @@
 - **CodePipeline** - Orchestrates CI/CD workflows, supports cross-account deployments
 - **CodeBuild** - Managed build service, uses buildspec.yml, supports Docker
 - **CodeDeploy** - Deployment service, supports blue/green, rolling, canary strategies
-- **CodeCommit** - Git repositories (deprecated for new customers July 2024)
+- **CodeCommit** - Git repositories (returned to full GA for new customers, Nov 2025)
 - **CodeStar/CodeCatalyst** - Development environments and project templates
 
 #### **Integration & Automation**
@@ -23,7 +23,7 @@
 - **Artifacts Management** - S3 storage, versioning, lifecycle policies
 - **Security Integration** - SAST/DAST scanning, vulnerability assessments
 
-### **Domain 2: Infrastructure as Code (20%)**
+### **Domain 2: Infrastructure as Code (17%)**
 
 #### **IaC Services**
 - **CloudFormation** - Native IaC, YAML/JSON, intrinsic functions, drift detection
@@ -41,7 +41,7 @@
 - **Organizations** - Multi-account management, SCPs, consolidated billing
 - **Control Tower** - Landing zones, guardrails, account factory
 
-### **Domain 3: Resilient Cloud Solutions (20%)**
+### **Domain 3: Resilient Cloud Solutions (15%)**
 
 #### **High Availability**
 - **Auto Scaling** - EC2, ECS, Application Auto Scaling, predictive scaling
@@ -73,7 +73,7 @@
 - **Systems Manager** - Operational insights, automation, patch management
 - **Personal Health Dashboard** - Service health, maintenance notifications
 
-### **Domain 5: Incident and Event Response (18%)**
+### **Domain 5: Incident and Event Response (14%)**
 
 #### **Event Processing**
 - **EventBridge** - Event routing, custom events, third-party integrations
@@ -86,7 +86,7 @@
 - **CloudWatch Alarms** - Threshold monitoring, composite alarms, actions
 - **Auto Scaling** - Dynamic scaling based on metrics, scheduled scaling
 
-### **Domain 6: Security and Compliance (15%)**
+### **Domain 6: Security and Compliance (17%)**
 
 #### **Identity & Access**
 - **IAM** - Users, roles, policies, conditions, cross-account access

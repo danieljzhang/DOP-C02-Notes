@@ -3,7 +3,7 @@
 ## Overview
 This domain focuses on designing and implementing resilient, highly available, and fault-tolerant cloud solutions that can withstand failures and maintain service continuity.
 
-## Domain Weight: 20% of exam
+## Domain Weight: 15% of exam
 
 ## Key Topics Covered
 

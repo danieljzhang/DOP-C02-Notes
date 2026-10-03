@@ -94,7 +94,7 @@ EventBridge → Lambda → SNS → Step Functions
 - Security boundaries
 
 ### Third-Party Integration
-- GitHub integration via CodeStar Connections
+- GitHub integration via CodeStar connections (live service; not the retired CodeStar)
 - Jenkins pipeline integration
 - External testing tools
 - Monitoring and alerting systems

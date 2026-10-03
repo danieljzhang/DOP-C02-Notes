@@ -1,6 +1,6 @@
 # Domain 2: Configuration Management & Infrastructure as Code - DOP-C02 Cheatsheet
 
-## Weight: 20% | Focus: CloudFormation, CDK, Config, Systems Manager
+## Weight: 17% | Focus: CloudFormation, CDK, Config, Systems Manager
 
 ---
 

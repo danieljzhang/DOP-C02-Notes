@@ -1,8 +1,15 @@
 # AWS CodeStar & CodeCatalyst - DOP-C02 Exam Notes
 
+> **Status correction (2026 review):** AWS CodeStar support ended **July 31, 2024** (retired).
+> Amazon CodeCatalyst closed to new customers **November 7, 2025** and is in **maintenance mode**
+> (no new features). Do NOT build new projects on either. This file is kept as historical
+> reference: know what these services were in case the exam mentions them, and know that the
+> live **CodeStar connections** service (GitHub/GitLab/Bitbucket source connections for
+> CodePipeline) is a *separate, still-supported* service despite the similar name.
+
 ## 1. Overview
 
-**AWS CodeStar** and **Amazon CodeCatalyst** are unified development services that provide integrated development environments and project management capabilities. CodeStar is the legacy service being replaced by CodeCatalyst, which offers enhanced collaboration, project templates, and modern development workflows.
+**AWS CodeStar** (retired July 2024) and **Amazon CodeCatalyst** (maintenance mode since November 2025, closed to new customers) *were* unified development services providing integrated development environments and project management capabilities. The exam-relevant takeaway: both are dead ends for new architectures - use CodePipeline + CodeBuild + CodeDeploy directly.
 
 ### Key Characteristics
 - **Unified development experience** - Integrated project management and development tools
@@ -23,7 +30,7 @@
 
 ---
 
-## 2. CodeStar (Legacy Service)
+## 2. CodeStar (Retired July 31, 2024)
 
 ### Core Components
 - **Project Templates** - Pre-configured application templates
@@ -142,31 +149,12 @@ Resources:
 ```
 
 ### Team Management
-```bash
-# Add team member to CodeStar project
-aws codestar associate-team-member \
-  --project-id my-project \
-  --user-arn arn:aws:iam::123456789012:user/developer \
-  --project-role Contributor
-
-# List team members
-aws codestar list-team-members --project-id my-project
-
-# Update team member role
-aws codestar update-team-member \
-  --project-id my-project \
-  --user-arn arn:aws:iam::123456789012:user/developer \
-  --project-role Owner
-
-# Remove team member
-aws codestar disassociate-team-member \
-  --project-id my-project \
-  --user-arn arn:aws:iam::123456789012:user/developer
-```
+> The `aws codestar` CLI was removed when CodeStar support ended (July 2024).
+> Team management for modern projects is done with IAM directly.
 
 ---
 
-## 3. Amazon CodeCatalyst (Modern Service)
+## 3. Amazon CodeCatalyst (Maintenance Mode Since Nov 2025 - Closed to New Customers)
 
 ### Core Features
 - **Spaces** - Organizational units for projects and teams
@@ -349,7 +337,12 @@ DevEnvironment:
 
 ---
 
-## 4. Migration from CodeStar to CodeCatalyst
+## 4. Migration from CodeStar to CodeCatalyst (Historical - Path Is Obsolete)
+
+> This section is kept for reference only. The CodeStar-to-CodeCatalyst migration path made
+> sense when CodeCatalyst was the strategic service; with CodeCatalyst in maintenance mode
+> since November 2025, the correct modern target is **CodePipeline + CodeBuild + CodeDeploy**
+> (or GitHub Actions), not CodeCatalyst.
 
 ### Migration Strategy
 ```python
@@ -632,7 +625,7 @@ Actions:
 
 ## 6. Common Exam Scenarios
 
-### Scenario 1: Migrate legacy CodeStar project to CodeCatalyst
+### Scenario 1: Migrate legacy CodeStar project to CodeCatalyst (obsolete path - know it existed, build on CodePipeline instead)
 **Solution:**
 - Inventory existing CodeStar projects and resources
 - Create CodeCatalyst space and projects
@@ -684,29 +677,10 @@ Actions:
 
 ## 7. CLI Commands Reference
 
-### CodeStar Operations (Legacy)
-```bash
-# List CodeStar projects
-aws codestar list-projects
-
-# Create CodeStar project
-aws codestar create-project \
-  --name MyProject \
-  --id my-project \
-  --description "My application project"
-
-# Describe project
-aws codestar describe-project --id my-project
-
-# Add team member
-aws codestar associate-team-member \
-  --project-id my-project \
-  --user-arn arn:aws:iam::123456789012:user/developer \
-  --project-role Contributor
-
-# Delete project
-aws codestar delete-project --id my-project
-```
+### CodeStar Operations (Retired)
+> The entire `aws codestar` CLI namespace was removed when CodeStar support ended on
+> July 31, 2024. These commands no longer exist. (Kept as a reminder: if an exam
+> question shows `aws codestar ...` as an answer choice, it is a distractor.)
 
 ### CodeCatalyst Operations
 ```bash

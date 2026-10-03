@@ -4,11 +4,11 @@
 
 ### **Domain-Specific Cheatsheets**
 - **[Domain 1: SDLC Automation (22%)](./Domain1-SDLC-Automation-Cheatsheet.md)** - CI/CD, CodePipeline, CodeBuild, CodeDeploy
-- **[Domain 2: Infrastructure as Code (20%)](./Domain2-Infrastructure-as-Code-Cheatsheet.md)** - CloudFormation, CDK, Config, Systems Manager
-- **[Domain 3: Resilient Cloud Solutions (20%)](./Domain3-Resilient-Cloud-Solutions-Cheatsheet.md)** - Auto Scaling, ELB, RDS Multi-AZ, Route 53
+- **[Domain 2: Infrastructure as Code (17%)](./Domain2-Infrastructure-as-Code-Cheatsheet.md)** - CloudFormation, CDK, Config, Systems Manager
+- **[Domain 3: Resilient Cloud Solutions (15%)](./Domain3-Resilient-Cloud-Solutions-Cheatsheet.md)** - Auto Scaling, ELB, RDS Multi-AZ, Route 53
 - **[Domain 4: Monitoring and Logging (15%)](./Domain4-Monitoring-Logging-Cheatsheet.md)** - CloudWatch, X-Ray, CloudTrail, Config
-- **[Domain 5: Incident and Event Response (18%)](./Domain5-Incident-Event-Response-Cheatsheet.md)** - EventBridge, Lambda, SNS/SQS, Step Functions
-- **[Domain 6: Security and Compliance (15%)](./Domain6-Security-Compliance-Cheatsheet.md)** - IAM, KMS, Secrets Manager, WAF, ACM
+- **[Domain 5: Incident and Event Response (14%)](./Domain5-Incident-Event-Response-Cheatsheet.md)** - EventBridge, Lambda, SNS/SQS, Step Functions
+- **[Domain 6: Security and Compliance (17%)](./Domain6-Security-Compliance-Cheatsheet.md)** - IAM, KMS, Secrets Manager, WAF, ACM
 
 ### **Exam Preparation**
 - **[Final Exam Tips](./Final-Exam-Tips.md)** - Last-minute review, common traps, time management
@@ -20,7 +20,7 @@
 
 ### **The Night Before Exam**
 1. **Start with [Final Exam Tips](./Final-Exam-Tips.md)** - Overview and strategy
-2. **Review highest-weight domains first**: Domain 1 (22%) → Domain 3 (20%) → Domain 2 (20%)
+2. **Review highest-weight domains first**: Domain 1 (22%) → Domain 2 (17%) → Domain 6 (17%)
 3. **Focus on "Key Points" and "Common Mistakes"** sections in each cheatsheet
 4. **Practice CLI commands** from each domain
 5. **Review scenario patterns** and recognition triggers
@@ -34,11 +34,11 @@
 
 ### **Domain Weights**
 - Domain 1: SDLC Automation - **22%** (14-15 questions)
-- Domain 2: Infrastructure as Code - **20%** (13 questions)  
-- Domain 3: Resilient Cloud Solutions - **20%** (13 questions)
+- Domain 2: Infrastructure as Code - **17%** (11 questions)  
+- Domain 3: Resilient Cloud Solutions - **15%** (10 questions)
 - Domain 4: Monitoring and Logging - **15%** (10 questions)
-- Domain 5: Incident and Event Response - **18%** (12 questions)
-- Domain 6: Security and Compliance - **15%** (10 questions)
+- Domain 5: Incident and Event Response - **14%** (9 questions)
+- Domain 6: Security and Compliance - **17%** (11 questions)
 
 ### **High-Impact Services** (Appear in Multiple Domains)
 - **CloudFormation** - Domains 1, 2, 3

@@ -3,7 +3,6 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 [![Exam: DOP-C02](https://img.shields.io/badge/Exam-DOP--C02-orange.svg)](https://aws.amazon.com/certification/certified-devops-engineer-professional/)
-[![Coverage: 96%](https://img.shields.io/badge/Coverage-96%25-success.svg)](#)
 
 ## 🎯 **Complete Exam Preparation Repository**
 
@@ -12,11 +11,10 @@
 This repository contains comprehensive study materials for the AWS Certified DevOps Engineer – Professional (DOP-C02) exam, organized by exam domains with detailed service coverage, integration patterns, and practical examples.
 
 ### **📊 Repository Stats**
-- **50+ Service Files** with comprehensive coverage
-- **15+ Deep-Dive Topics** for advanced concepts
-- **8 Exam Cheatsheets** for quick review
+- **50 Service Files** with comprehensive coverage
+- **10 Deep-Dive Topics** for advanced concepts
+- **10 Exam Cheatsheets** for quick review
 - **10 Practice Scenarios** with real exam-style questions
-- **96%+ Domain Coverage** across all exam objectives
 - **100% Free** and open-source
 
 ## 📚 **Repository Structure**
@@ -29,13 +27,13 @@ This repository contains comprehensive study materials for the AWS Certified Dev
 - **Deep Dives**: CodePipeline cross-account patterns, service integrations
 - **Coverage**: CI/CD pipelines, automated testing, deployment strategies
 
-#### **[Domain 2: Infrastructure as Code (20%)](./Domain-2-Configuration-Management-Infrastructure-as-Code/)**
+#### **[Domain 2: Infrastructure as Code (17%)](./Domain-2-Configuration-Management-Infrastructure-as-Code/)**
 - **Core Services**: CloudFormation, CDK, SAM, Terraform, Systems Manager
 - **Governance**: Organizations, Control Tower, Service Catalog, Config
 - **Deep Dives**: CloudFormation macros, drift detection, advanced features
 - **Coverage**: IaC best practices, configuration management, governance
 
-#### **[Domain 3: Resilient Cloud Solutions (20%)](./Domain-3-Resilient-Cloud-Solutions/)**
+#### **[Domain 3: Resilient Cloud Solutions (15%)](./Domain-3-Resilient-Cloud-Solutions/)**
 - **Core Services**: Auto Scaling, ELB, RDS Multi-AZ, Route 53, S3 CRR, EKS
 - **Patterns**: High availability, disaster recovery, multi-region architectures
 - **Coverage**: Resilience design, fault tolerance, scalability patterns
@@ -45,12 +43,12 @@ This repository contains comprehensive study materials for the AWS Certified Dev
 - **Deep Dives**: Cross-account observability, metrics insights
 - **Coverage**: Comprehensive monitoring, security monitoring, compliance
 
-#### **[Domain 5: Incident and Event Response (18%)](./Domain-5-Incident-Event-Response/)**
+#### **[Domain 5: Incident and Event Response (14%)](./Domain-5-Incident-Event-Response/)**
 - **Core Services**: EventBridge, Lambda, SNS/SQS, Step Functions, CloudWatch Alarms
 - **Patterns**: Event-driven architectures, automated response, workflow orchestration
 - **Coverage**: Incident detection, automated remediation, notification systems
 
-#### **[Domain 6: Security and Compliance (15%)](./Domain-6-Security-Compliance/)**
+#### **[Domain 6: Security and Compliance (17%)](./Domain-6-Security-Compliance/)**
 - **Core Services**: IAM, KMS, Secrets Manager, WAF/Shield, Certificate Manager
 - **Governance**: Compliance frameworks, security automation, governance patterns
 - **Coverage**: Security best practices, compliance monitoring, access management
@@ -84,7 +82,7 @@ This repository contains comprehensive study materials for the AWS Certified Dev
 
 ### **Exam Details**
 - **Duration**: 180 minutes (3 hours)
-- **Questions**: 65 questions (multiple choice and multiple response)
+- **Questions**: 75 questions (65 scored + 10 unscored; multiple choice and multiple response)
 - **Passing Score**: 750/1000 (approximately 75%)
 - **Cost**: $300 USD
 - **Validity**: 3 years
@@ -93,11 +91,11 @@ This repository contains comprehensive study materials for the AWS Certified Dev
 | Domain | Weight | Est. Questions | Study Priority |
 |--------|--------|----------------|----------------|
 | 1. SDLC Automation | 22% | 14-15 | High |
-| 2. Infrastructure as Code | 20% | 13 | High |
-| 3. Resilient Cloud Solutions | 20% | 13 | High |
+| 2. Infrastructure as Code | 17% | 11 | High |
+| 3. Resilient Cloud Solutions | 15% | 10 | Medium |
 | 4. Monitoring and Logging | 15% | 10 | Medium |
-| 5. Incident and Event Response | 18% | 12 | Medium |
-| 6. Security and Compliance | 15% | 10 | Medium |
+| 5. Incident and Event Response | 14% | 9 | Medium |
+| 6. Security and Compliance | 17% | 11 | High |
 
 ## 🎯 **Key Features of This Repository**
 

@@ -1154,7 +1154,7 @@ Central Governance Account
 ## 14. Exam Tips
 
 ### What to Remember
-- **Trust relationships** are bidirectional (central account trusts target, target trusts central)
+- **Trust relationships** are one-directional: only the *target* role carries a trust policy allowing the central account to assume it; the central side grants `sts:AssumeRole` via an *identity* policy (no trust policy needed there)
 - **External IDs** provide additional security for role assumption
 - **S3 bucket policies** must allow cross-account access for artifacts
 - **KMS key policies** must grant decrypt permissions to target accounts

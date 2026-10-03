@@ -3,7 +3,7 @@
 ## Overview
 This domain covers security and compliance aspects of AWS DevOps practices, focusing on implementing security controls, managing compliance requirements, and ensuring governance across AWS environments.
 
-## Domain Weight: 15% of exam
+## Domain Weight: 17% of exam
 
 ## Key Topics Covered
 

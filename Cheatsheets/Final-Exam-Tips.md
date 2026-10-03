@@ -1,7 +1,7 @@
 # DOP-C02 Final Exam Tips - Last Night Review
 
 ## 🎯 **Exam Format**
-- **65 Questions** | **180 Minutes** | **Pass Score: 750/1000**
+- **75 Questions (65 scored + 10 unscored)** | **180 Minutes** | **Pass Score: 750/1000**
 - **Multiple Choice** and **Multiple Response**
 - **Scenario-based** questions with real-world situations
 
@@ -23,19 +23,19 @@
 - ✅ buildspec.yml and appspec.yml syntax
 - ✅ CodeDeploy deployment configurations
 
-### **Domain 3 (20%) - Resilient Solutions**
+### **Domain 3 (15%) - Resilient Solutions**
 - ✅ Multi-AZ vs Read Replicas
 - ✅ Auto Scaling policies and health checks
 - ✅ Route 53 routing policies and failover
 - ✅ Load balancer types and use cases
 
-### **Domain 2 (20%) - Infrastructure as Code**
+### **Domain 2 (17%) - Infrastructure as Code**
 - ✅ CloudFormation intrinsic functions
 - ✅ StackSets cross-account deployment
 - ✅ Config rules and remediation
 - ✅ Systems Manager Parameter Store
 
-### **Domain 5 (18%) - Incident Response**
+### **Domain 5 (14%) - Incident Response**
 - ✅ EventBridge event patterns and routing
 - ✅ Step Functions state types and error handling
 - ✅ Lambda error handling and DLQ

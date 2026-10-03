@@ -10,7 +10,7 @@
 - **Multi-data source** - Analyzes VPC Flow Logs, DNS logs, CloudTrail logs, and S3 data events
 - **Automated response** - Integration with Lambda, SNS, and other services for automated remediation
 - **Multi-account support** - Centralized security monitoring across AWS Organizations
-- **Malware detection** - Scans EBS volumes and container images for malware
+- **Malware detection** - Scans EBS volumes for malware (container *image* scanning is Amazon Inspector, not GuardDuty)
 - **Runtime monitoring** - Monitors EKS clusters and EC2 instances for suspicious activity
 
 ### What Problem Does It Solve?
@@ -230,7 +230,7 @@ class GuardDutyAnalyzer:
         # Analyze findings
         analysis = {
             'total_findings': len(findings_details['Findings']),
-            'severity_breakdown': {'Low': 0, 'Medium': 0, 'High': 0},
+            'severity_breakdown': {'Low': 0, 'Medium': 0, 'High': 0, 'Critical': 0},
             'type_breakdown': {},
             'affected_resources': set(),
             'critical_findings': [],
@@ -252,7 +252,7 @@ class GuardDutyAnalyzer:
                 analysis['affected_resources'].add(resource_type)
             
             # Identify critical findings
-            if finding['Severity'] >= 7.0:  # High severity
+            if finding['Severity'] >= 9.0:  # Critical severity
                 analysis['critical_findings'].append({
                     'id': finding['Id'],
                     'type': finding['Type'],
@@ -272,7 +272,9 @@ class GuardDutyAnalyzer:
     
     def get_severity_label(self, severity_score):
         """Convert severity score to label"""
-        if severity_score >= 7.0:
+        if severity_score >= 9.0:
+            return 'Critical'
+        elif severity_score >= 7.0:
             return 'High'
         elif severity_score >= 4.0:
             return 'Medium'
@@ -377,38 +379,60 @@ class GuardDutyAnalyzer:
             }
     
     def block_ip_address(self, ip_address, resource):
-        """Block IP address in security group"""
-        
+        """Block attacker IP: revoke any allow rules for it in the instance's
+        security groups, then add an explicit DENY in the subnet NACL.
+        (Security groups are allow-only - they have no deny rules.)"""
+
         try:
             instance_id = resource['InstanceDetails']['InstanceId']
-            
-            # Get instance security groups
+
+            # Get instance security groups and subnet
             instance_response = self.ec2_client.describe_instances(InstanceIds=[instance_id])
-            security_groups = instance_response['Reservations'][0]['Instances'][0]['SecurityGroups']
-            
-            # Add deny rule to security groups
+            instance = instance_response['Reservations'][0]['Instances'][0]
+            security_groups = instance['SecurityGroups']
+            subnet_id = instance['SubnetId']
+
+            revoked = []
+            # Revoke any ingress rule that currently allows the attacker IP
             for sg in security_groups:
-                self.ec2_client.authorize_security_group_ingress(
-                    GroupId=sg['GroupId'],
-                    IpPermissions=[
-                        {
-                            'IpProtocol': '-1',
-                            'IpRanges': [
-                                {
-                                    'CidrIp': f'{ip_address}/32',
-                                    'Description': f'GuardDuty auto-block for {ip_address}'
-                                }
-                            ]
-                        }
+                sg_details = self.ec2_client.describe_security_groups(
+                    GroupIds=[sg['GroupId']]
+                )['SecurityGroups'][0]
+                for perm in sg_details.get('IpPermissions', []):
+                    matching_ranges = [
+                        r for r in perm.get('IpRanges', [])
+                        if r.get('CidrIp') == f'{ip_address}/32'
                     ]
+                    if matching_ranges:
+                        revoke_perm = dict(perm)
+                        revoke_perm['IpRanges'] = matching_ranges
+                        self.ec2_client.revoke_security_group_ingress(
+                            GroupId=sg['GroupId'],
+                            IpPermissions=[revoke_perm]
+                        )
+                        revoked.append(sg['GroupId'])
+
+            # Explicit DENY via the subnet network ACL (NACLs support deny rules;
+            # lowest rule number wins, so a low number like 90 takes precedence)
+            nacls = self.ec2_client.describe_network_acls(
+                Filters=[{'Name': 'association.subnet-id', 'Values': [subnet_id]}]
+            )['NetworkAcls']
+            for nacl in nacls:
+                self.ec2_client.create_network_acl_entry(
+                    NetworkAclId=nacl['NetworkAclId'],
+                    RuleNumber=90,
+                    Protocol='-1',
+                    RuleAction='deny',
+                    Egress=False,
+                    CidrBlock=f'{ip_address}/32'
                 )
-            
+
             return {
                 'action': 'IP Address Block',
                 'status': 'SUCCESS',
-                'details': f'Blocked IP {ip_address} in security groups'
+                'details': f'Revoked attacker IP {ip_address} from {len(revoked)} security group(s); NACL deny added'
             }
-        
+
         except Exception as e:
             return {
                 'action': 'IP Address Block',
@@ -1185,7 +1209,7 @@ Resources:
       Code:
         ZipFile: |
           import boto3
-          import requests
+          import requests  # NOTE: 'requests' is NOT in the Lambda Python runtime - bundle it via a Lambda layer
           import json
           
           def lambda_handler(event, context):

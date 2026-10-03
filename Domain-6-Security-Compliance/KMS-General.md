@@ -301,7 +301,7 @@ def lambda_handler(event, context):
 - Alternative to key policies for temporary access
 - Programmatically created and managed
 - Can be constrained by conditions
-- Automatically cleaned up when no longer needed
+- Persist until explicitly retired (`retire-grant`) or revoked (`revoke-grant`) - they are NOT auto-cleaned
 
 ### Grant Operations
 ```bash

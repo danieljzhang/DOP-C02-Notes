@@ -1,6 +1,6 @@
 # Domain 6: Security and Compliance - DOP-C02 Cheatsheet
 
-## Weight: 15% | Focus: IAM, KMS, Secrets Manager, WAF, Certificate Manager
+## Weight: 17% | Focus: IAM, KMS, Secrets Manager, WAF, Certificate Manager
 
 ---
 

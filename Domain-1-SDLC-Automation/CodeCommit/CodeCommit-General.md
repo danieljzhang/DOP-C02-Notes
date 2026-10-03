@@ -501,13 +501,13 @@ git push https://git-codecommit.us-east-1.amazonaws.com/v1/repos/MyRepo --tags
 ### Service Limits
 - **Repository name**: 1-100 characters
 - **File size**: 2 GB per file (use Git LFS for larger)
-- **Commit size**: 2 GB
+- **Commit size**: no documented total commit-size limit (per-file limit is 2 GB; use Git LFS for large files)
 - **Branch/tag names**: 256 characters
 - **Number of repositories**: 5,000 per account (soft limit)
 - **Concurrent connections**: Varies by region
 
 ### API Rate Limits
-- Most APIs: 1,000 requests per second
+- CodeCommit publishes per-API rate limits on its quotas page (they vary by API - check the official quotas documentation; do not memorize a single number)
 - Git operations: No documented limit
 - Can request limit increases via AWS Support
 

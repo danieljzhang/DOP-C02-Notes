@@ -1,6 +1,6 @@
 # Domain 3: Resilient Cloud Solutions - DOP-C02 Cheatsheet
 
-## Weight: 20% | Focus: High Availability, Auto Scaling, Load Balancing, Multi-AZ
+## Weight: 15% | Focus: High Availability, Auto Scaling, Load Balancing, Multi-AZ
 
 ---
 

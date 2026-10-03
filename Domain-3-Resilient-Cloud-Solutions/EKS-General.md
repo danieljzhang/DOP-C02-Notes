@@ -39,23 +39,15 @@ aws eks create-nodegroup \
 ```
 
 ### Fargate Integration
-```yaml
-# Fargate profile
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: fargate-profile
-data:
-  profile: |
-    fargateProfiles:
-    - name: default
-      selectors:
-      - namespace: default
-        labels:
-          compute-type: fargate
-      subnets:
-      - subnet-12345678
-      - subnet-87654321
+```bash
+# Fargate profiles are created via the AWS CLI/API - NOT via kubectl manifests.
+# (There is no "Fargate profile" Kubernetes object; a ConfigMap cannot define one.)
+aws eks create-fargate-profile \
+  --cluster-name my-cluster \
+  --fargate-profile-name default \
+  --pod-execution-role-arn arn:aws:iam::123456789012:role/eks-fargate-pod-execution-role \
+  --selectors namespace=default,labels={compute-type=fargate} \
+  --subnets subnet-12345678 subnet-87654321
 ```
 
 ---
@@ -162,7 +154,7 @@ spec:
     spec:
       serviceAccountName: cluster-autoscaler
       containers:
-      - image: k8s.gcr.io/autoscaling/cluster-autoscaler:v1.21.0
+      - image: registry.k8s.io/autoscaling/cluster-autoscaler:v1.21.0  # k8s.gcr.io is deprecated; use registry.k8s.io
         name: cluster-autoscaler
         resources:
           limits:

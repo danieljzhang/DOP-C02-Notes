@@ -1,6 +1,6 @@
 # Domain 5: Incident and Event Response - DOP-C02 Cheatsheet
 
-## Weight: 18% | Focus: EventBridge, Lambda, SNS/SQS, Step Functions, CloudWatch Alarms
+## Weight: 14% | Focus: EventBridge, Lambda, SNS/SQS, Step Functions, CloudWatch Alarms
 
 ---
 

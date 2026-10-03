@@ -79,24 +79,24 @@ Hooks:
     1.  **Security Group Egress:** Check the Security Group attached to the EC2 instances. The egress (outbound) rules must allow traffic on port `443` (for HTTPS) to the destination API's IP address or range. This is the most likely cause.
     2.  **VPC Flow Logs:** If the Security Group seems correct, enable VPC Flow Logs. Filter for `REJECT` records originating from the private IP addresses of your EC2 instances. This will confirm if a Security Group or NACL is blocking the traffic.
 
-### Scenario 2: Unexplained Instance Restarts in OpsWorks
-*   **Problem:** AWS OpsWorks is restarting EC2 instances, and you need to be alerted.
+### Scenario 2: Unexplained Instance Replacements by Auto Scaling
+*   **Problem:** EC2 instances in an Auto Scaling group keep getting replaced, and you need to be alerted with the cause.
 *   **Solution:**
-    1.  **Monitoring:** Create an Amazon EventBridge (CloudWatch Events) rule to capture state changes from OpsWorks.
-    2.  **Event Pattern:** The event pattern should filter for events where the `detail.initiated_by` field is `"auto-healing"`. This indicates OpsWorks is replacing an unhealthy instance.
-    3.  **Action:** Configure the rule's target to be an Amazon SNS topic, which then sends an email or SMS notification.
+    1.  **Monitoring:** Create an Amazon EventBridge rule to capture Auto Scaling lifecycle events.
+    2.  **Event Pattern:** The event pattern should filter for EC2 Instance-terminate Lifecycle Action events. This indicates Auto Scaling is replacing an unhealthy instance.
+    3.  **Action:** Configure the rule's target to be an Amazon SNS topic, which then sends an email or SMS notification. Optionally trigger an SSM Automation runbook to collect logs from the terminating instance before it disappears.
 
 ```json
-// EventBridge Rule Pattern for OpsWorks Auto-Healing
+// EventBridge Rule Pattern for Auto Scaling Terminations
 {
-  "source": ["aws.opsworks"],
-  "detail-type": ["OpsWorks Instance State Change"],
+  "source": ["aws.autoscaling"],
+  "detail-type": ["EC2 Instance-terminate Lifecycle Action"],
   "detail": {
-    "status": ["stopped"],
-    "initiated_by": ["auto-healing"]
+    "AutoScalingGroupName": ["my-asg"]
   }
 }
 ```
+> **Note (2026 review):** the original version of this scenario used AWS OpsWorks auto-healing events. OpsWorks (all flavors) was fully retired in 2024 - the EventBridge source `aws.opsworks` no longer emits events. The Auto Scaling equivalent above teaches the same troubleshooting pattern on a live service.
 
 ### Scenario 3: Validating a Lambda Deployment
 *   **Problem:** You need to run API checks during a Lambda deployment and automatically roll back on failure.

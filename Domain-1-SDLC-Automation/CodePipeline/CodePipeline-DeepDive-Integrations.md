@@ -247,7 +247,7 @@ Resources:
       OutputArtifacts:
         - Name: SourceOutput
 
-# CodeStar Connection for GitHub
+# CodeStar connections for GitHub (live service - unrelated to the retired CodeStar project service)
 Resources:
   GitHubConnection:
     Type: AWS::CodeStarConnections::Connection
@@ -1008,7 +1008,7 @@ aws lambda add-permission \
 
 ### Third-Party Integration Setup
 ```bash
-# Create CodeStar connection for GitHub
+# Create a CodeStar connection for GitHub (aws codestar-connections = live service)
 aws codestar-connections create-connection \
   --provider-type GitHub \
   --connection-name MyGitHubConnection

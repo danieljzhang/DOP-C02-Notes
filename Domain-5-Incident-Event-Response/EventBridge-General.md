@@ -227,7 +227,7 @@ def isolate_compromised_resources(finding):
     """Isolate compromised EC2 instances"""
     ec2 = boto3.client('ec2')
     
-    for resource in finding['service']['resourceRole'] == 'TARGET':
+    for resource in finding.get('service', {}).get('resources', []):  # was: iterated a boolean (== comparison), which raises TypeError
         if resource['resourceType'] == 'Instance':
             instance_id = resource['instanceDetails']['instanceId']
             

@@ -299,8 +299,10 @@ def is_safe_to_revert(drift_detail):
     # Define safe properties that can be automatically reverted
     safe_properties = [
         'Tags',
-        'Description',
-        'UserData'  # Be careful with this one
+        'Description'
+        # NOTE: UserData is deliberately excluded - changing it in the template
+        # does NOT touch an already-running instance, so an "automatic revert"
+        # of UserData drift would silently no-op. Handle it via instance replacement.
     ]
     
     for prop_diff in drift_detail.get('PropertyDifferences', []):
@@ -568,9 +570,9 @@ Resources:
       EventSelectors:
         - ReadWriteType: All
           IncludeManagementEvents: true
-          DataResources:
-            - Type: AWS::CloudFormation::Stack
-              Values: ['*']
+          # NOTE: CloudFormation stacks are NOT a valid CloudTrail data-event resource type.
+          # Data events cover S3 objects, Lambda functions, and DynamoDB streams.
+          # For stack API auditing, rely on management events (default) instead.
 ```
 
 ---
@@ -790,9 +792,10 @@ aws cloudformation describe-stack-resource-drifts \
   --stack-name MyStack \
   --stack-resource-drift-status-filters MODIFIED DELETED
 
-# List all drift detection operations
-aws cloudformation list-stack-drift-detection-history \
+# Re-run drift detection, then describe results (there is no list-stack-drift-detection-history command)
+aws cloudformation detect-stack-drift \
   --stack-name MyStack
+# then poll the returned StackDriftDetectionId with describe-stack-drift-detection-status
 
 # Get specific resource drift details
 aws cloudformation describe-stack-resource-drift \

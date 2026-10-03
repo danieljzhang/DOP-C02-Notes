@@ -1,4 +1,6 @@
-Below is a clear, **actionable step-by-step guide** to create an **AWS CodeStar Connection** and install the **AWS CodeStar Connections GitHub App** correctly so your CodePipeline will receive push events. I’ll include verification steps and troubleshooting tips so you can confirm the webhook got created and fix the common problems.
+> **Naming note (2026 review):** "CodeStar connections" is a **live, fully supported** service for connecting CodePipeline to GitHub/GitLab/Bitbucket. It is **unrelated** to the retired AWS CodeStar project service (support ended July 2024) despite the similar name.
+
+Below is a clear, **actionable step-by-step guide** to create a **CodeStar connection** and install the **AWS CodeStar Connections GitHub App** correctly so your CodePipeline will receive push events. I’ll include verification steps and troubleshooting tips so you can confirm the webhook got created and fix the common problems.
 
 ---
 

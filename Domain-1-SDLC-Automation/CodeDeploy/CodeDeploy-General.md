@@ -829,8 +829,8 @@ tail -f /var/log/aws/codedeploy-agent/codedeploy-agent.log
 - In-place deployment NOT supported for Lambda/ECS
 - Agent required for EC2/On-Premises (often forgotten)
 - AppSpec file must be in root of revision
-- Blue/Green requires load balancer for EC2
-- Automatic rollback requires CloudWatch alarm configuration
+- Blue/Green for EC2 usually uses a load balancer, but a no-traffic-rerouting option exists (instances are replaced in place behind the scenes)
+- Automatic rollback triggers on deployment failure with no alarm needed; CloudWatch alarms are an *additional* optional trigger (note: section 11 of this file already states rollback-on-failure needs no alarm)
 - On-premises deployments have per-instance charges
 
 ### Scenario-Based Questions

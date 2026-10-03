@@ -4,7 +4,7 @@
 
 ### **Exam Details**
 - **Duration**: 180 minutes (3 hours)
-- **Questions**: 65 questions (multiple choice and multiple response)
+- **Questions**: 75 questions (65 scored + 10 unscored; multiple choice and multiple response)
 - **Passing Score**: 750/1000 (approximately 75%)
 - **Cost**: $300 USD
 - **Validity**: 3 years
@@ -14,11 +14,11 @@
 | Domain | Weight | Questions | Time Allocation |
 |--------|--------|-----------|-----------------|
 | 1. SDLC Automation | 22% | ~14-15 | 40 minutes |
-| 2. Infrastructure as Code | 20% | ~13 | 36 minutes |
-| 3. Resilient Cloud Solutions | 20% | ~13 | 36 minutes |
+| 2. Infrastructure as Code | 17% | ~11 | 31 minutes |
+| 3. Resilient Cloud Solutions | 15% | ~10 | 27 minutes |
 | 4. Monitoring and Logging | 15% | ~10 | 27 minutes |
-| 5. Incident and Event Response | 18% | ~12 | 32 minutes |
-| 6. Security and Compliance | 15% | ~10 | 27 minutes |
+| 5. Incident and Event Response | 14% | ~9 | 25 minutes |
+| 6. Security and Compliance | 17% | ~11 | 31 minutes |
 
 ## ⏰ **Time Management Strategy**
 
@@ -80,7 +80,7 @@
 - **"Third-party tools"** - When AWS native options exist
 - **"Manual processes"** - AWS prefers automation
 - **"Complex multi-step processes"** - Look for simpler alternatives
-- **"Deprecated services"** - CodeCommit, OpsWorks Stacks
+- **"Deprecated services"** - OpsWorks Stacks (CodeCommit is fully GA again since Nov 2025 — do NOT auto-eliminate it)
 
 ### **Green Flags in Answer Choices**
 - **"Managed services"** - AWS prefers managed over self-managed

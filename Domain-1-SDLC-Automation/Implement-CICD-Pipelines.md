@@ -40,10 +40,10 @@ AWS provides a complete set of tools to build and manage your CI/CD pipelines.
 *   **AWS CodePipeline**: A continuous delivery service that models, visualizes, and automates the steps required to release software. It orchestrates the entire process.
 *   **AWS CodeCommit**: A managed source control service that hosts secure Git-based repositories.
 *   **AWS CodeBuild**: A fully managed continuous integration service that compiles source code, runs tests, and produces software packages that are ready to deploy.
-ax*   **AWS CodeDeploy**: A service that automates code deployments to any instance, including Amazon EC2 instances and on-premises servers. It handles the complexity of updating your applications.
+*   **AWS CodeDeploy**: A service that automates code deployments to any instance, including Amazon EC2 instances and on-premises servers. It handles the complexity of updating your applications.
 *   **AWS CodeArtifact**: A secure, scalable, and cost-effective artifact management for software development.
 *   **Amazon ECR**: A managed container image registry service.
-*   **AWS CodeStar**: A unified UI to quickly develop, build, and deploy applications on AWS. It sets up the entire CI/CD toolchain.
+*   **AWS CodeStar**: (Retired July 2024 - do not use for new projects) A unified UI that used to set up the entire CI/CD toolchain.
 *   **Infrastructure as Code (IaC)**:
     *   **AWS CloudFormation**: Declarative IaC for provisioning AWS resources.
     *   **AWS SAM (Serverless Application Model)**: An open-source framework for building serverless applications.

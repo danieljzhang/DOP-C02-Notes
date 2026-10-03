@@ -3,7 +3,7 @@
 ## Overview
 This domain focuses on implementing and managing infrastructure as code (IaC), configuration management, and governance practices using AWS services and tools.
 
-## Domain Weight: 20% of exam
+## Domain Weight: 17% of exam
 
 ## Key Topics Covered
 
@@ -15,7 +15,6 @@ This domain focuses on implementing and managing infrastructure as code (IaC), c
 
 ### 2.2 Configuration Management
 - AWS Systems Manager for configuration and patch management
-- AWS OpsWorks for application lifecycle management
 - AWS Config for configuration compliance and monitoring
 - Parameter management and secrets handling
 
@@ -39,9 +38,6 @@ This domain focuses on implementing and managing infrastructure as code (IaC), c
   - **[SYSTEMSMANAGER-SSM-General.md](./SystemsManager-SSM/SYSTEMSMANAGER-SSM-General.md)** - Comprehensive Systems Manager guide
   - **[SYSTEMSMANAGER-SSM-DeepDive-RunCommand.md](./SystemsManager-SSM/SYSTEMSMANAGER-SSM-DeepDive-RunCommand.md)** - Run Command deep dive
   - **[SYSTEMSMANAGER-SSM-DeepDive-StateManager.md](./SystemsManager-SSM/SYSTEMSMANAGER-SSM-DeepDive-StateManager.md)** - State Manager automation
-
-- **OpsWorks/** - Application lifecycle management
-  - **[OPSWORKS-General.md](./OpsWorks/OPSWORKS-General.md)** - OpsWorks Stacks and Chef/Puppet
 
 - **Terraform/** - Third-party IaC tool
   - **[TERRAFORM-General.md](./Terraform/TERRAFORM-General.md)** - Terraform fundamentals and AWS integration
