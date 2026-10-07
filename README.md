@@ -4,6 +4,14 @@
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 [![Exam: DOP-C02](https://img.shields.io/badge/Exam-DOP--C02-orange.svg)](https://aws.amazon.com/certification/certified-devops-engineer-professional/)
 
+## 🌍 Read Online
+
+These notes are also published as a formatted, searchable series on my website:
+
+👉 **[DOP-C02 Notes — album69.com/dop-c02](https://album69.com/dop-c02/)**
+
+If they helped you, consider [buying me a coffee ☕](https://ko-fi.com/lightwithjian) to keep them free and up to date.
+
 ## 🎯 **Complete Exam Preparation Repository**
 
 > **Free, comprehensive, and exam-focused study materials for AWS Certified DevOps Engineer – Professional (DOP-C02) certification. Created with Amazon Q Developer and covering 50+ AWS services across all 6 exam domains.**
