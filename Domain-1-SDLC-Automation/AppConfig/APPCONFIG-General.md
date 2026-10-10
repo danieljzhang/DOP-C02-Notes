@@ -6,7 +6,7 @@
 
 **Why it matters:** "Safely roll out a config change with canary + auto-rollback" → AppConfig, not a Parameter Store edit.
 
-**Sources:** https://docs.aws.amazon.com/appconfig/latest/userguide/what-is-appconfig.html *(standard doc path — verify before publishing)*
+**Sources:** https://docs.aws.amazon.com/appconfig/latest/userguide/what-is-appconfig.html
 
 ---
 *Added during the 2026-10-03 review. All prose is original; facts verified against the AWS documentation links in Sources above.*

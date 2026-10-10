@@ -1,5 +1,4 @@
-# Domain 1: SDLC Automation
-## Task 1: Implement CI/CD Pipelines
+# Task 1: Implement CI/CD Pipelines
 
 This section covers the fundamentals of the Software Development Lifecycle (SDLC), CI/CD concepts, and how to implement CI/CD pipelines using AWS services, focusing on the knowledge required for the DOP-C02 exam.
 

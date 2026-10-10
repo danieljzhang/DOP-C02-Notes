@@ -4,7 +4,7 @@ Below is a clear, **actionable step-by-step guide** to create a **CodeStar conne
 
 ---
 
-# Quick checklist (high level)
+## Quick checklist (high level)
 
 1. Create a CodeStar Connection in AWS Console → this starts the GitHub OAuth/install flow.
 2. On GitHub, **install** the “AWS CodeStar Connections” App and grant it access to the repo.
